@@ -25,22 +25,20 @@ class TodaysForecast extends React.Component {
 				isInitialRender: false,
 				cityName: this.props.cityDayForecast.name,
 				weatherInfo: this.props.cityDayForecast.weather[0].description,
-				mainProperties: this.props.cityDayForecast.main,
+				mainProperties: this.removeKey(this.props.cityDayForecast.main),
 			});
 		}
 	}
 
-	temperatureConverter(valNum) {
-		valNum = parseFloat(valNum);
-		return (valNum - 273.15) * 1.8 + 32;
+	removeKey(object) {
+		// This will remove the key defined underneath from the object received
+		const { pressure, ...newData } = object;
+		return newData;
 	}
 
 	render() {
 		return (
 			<div className="TodaysForecast">
-				{/* Testing Functions */}
-				{/* {console.log(this.props.cityDayForecast.weatherInfo.description)} */}
-				{console.log(this.state)}
 				<CityForecast
 					cityName={this.state.cityName}
 					weatherInfo={this.state.weatherInfo}
@@ -55,7 +53,7 @@ function CityForecast(props) {
 	return (
 		<div className="CityForecast">
 			<h1>{props.cityName}</h1>
-			<h2>Weather info: {props.weatherInfo}</h2>
+			<h2>{props.weatherInfo}</h2>
 			{
 				// Will pull and post all main properties as h2 tags
 				Object.keys(props.mainProperties).map((key) => {

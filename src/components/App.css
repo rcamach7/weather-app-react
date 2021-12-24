@@ -1,3 +1,24 @@
 html {
-	background-color: darkgray;
+	background: url("../images/background.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.TodaysForecast {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.CityForecast {
+	width: 75vw;
+	height: 60vh;
+
+	overflow: scroll;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
 }
