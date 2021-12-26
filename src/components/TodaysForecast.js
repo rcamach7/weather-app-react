@@ -2,58 +2,20 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class TodaysForecast extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isInitialRender: true,
-			cityName: "",
-			// Will have to get the other property with a single word as well
-			// so we can determine which main icon to use. The other property is one word we can
-			// easily match with a icon as apposed to what we are saving right now.
-			weatherInfo: "",
-			mainProperties: {
-				feels_like: "",
-				humidity: "",
-				pressure: "",
-				temp: "",
-				temp_max: "",
-				temp_min: "",
-			},
-		};
-	}
-
-	// This will run once the prop changes, meaning we have received our API response and are ready to process it.
-	componentDidUpdate() {
-		if (this.state.isInitialRender) {
-			this.setState({
-				isInitialRender: false,
-				cityName: this.props.cityDayForecast.name,
-				weatherInfo: this.props.cityDayForecast.weather[0].description,
-				mainProperties: this.removeKey(this.props.cityDayForecast.main),
-			});
-		}
-	}
-
-	removeKey(object) {
-		// This will remove the key defined underneath from the object received
-		const { pressure, ...newData } = object;
-		return newData;
-	}
-
 	render() {
 		return (
 			<div className="TodaysForecast">
 				<MainForecast
-					cityName={this.state.cityName}
-					weatherInfo={this.state.weatherInfo}
-					currentTemp={this.state.mainProperties.temp}
+					cityName={this.props.cityName}
+					weatherInfo={this.props.weatherInfo}
+					currentTemp={this.props.temp}
 				/>
 
 				<ExtendedInfo
-					feels_like={this.state.mainProperties.feels_like}
-					temp_max={this.state.mainProperties.temp_max}
-					temp_min={this.state.mainProperties.temp_min}
-					humidity={this.state.mainProperties.humidity}
+					feels_like={this.props.feels_like}
+					temp_max={this.props.temp_max}
+					temp_min={this.props.temp_min}
+					humidity={this.props.humidity}
 				/>
 			</div>
 		);
