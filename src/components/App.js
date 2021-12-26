@@ -1,6 +1,15 @@
 import React from "react";
 import "./App.css";
 import TodaysForecast from "./TodaysForecast";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+	faCheckSquare,
+	faCloud,
+	faTint,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faCheckSquare, faCloud, faTint);
 
 class App extends React.Component {
 	constructor(props) {

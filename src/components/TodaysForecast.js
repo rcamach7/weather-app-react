@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class TodaysForecast extends React.Component {
 	constructor(props) {
@@ -6,6 +7,9 @@ class TodaysForecast extends React.Component {
 		this.state = {
 			isInitialRender: true,
 			cityName: "",
+			// Will have to get the other property with a single word as well
+			// so we can determine which main icon to use. The other property is one word we can
+			// easily match with a icon as apposed to what we are saving right now.
 			weatherInfo: "",
 			mainProperties: {
 				feels_like: "",
@@ -39,27 +43,62 @@ class TodaysForecast extends React.Component {
 	render() {
 		return (
 			<div className="TodaysForecast">
-				<CityForecast
+				<MainForecast
 					cityName={this.state.cityName}
 					weatherInfo={this.state.weatherInfo}
-					mainProperties={this.state.mainProperties}
+					currentTemp={this.state.mainProperties.temp}
+				/>
+
+				<ExtendedInfo
+					feels_like={this.state.mainProperties.feels_like}
+					temp_max={this.state.mainProperties.temp_max}
+					temp_min={this.state.mainProperties.temp_min}
+					humidity={this.state.mainProperties.humidity}
 				/>
 			</div>
 		);
 	}
 }
 
-function CityForecast(props) {
+function MainForecast(props) {
 	return (
-		<div className="CityForecast">
-			<h1>{props.cityName}</h1>
-			<h2>{props.weatherInfo}</h2>
-			{
-				// Will pull and post all main properties as h2 tags
-				Object.keys(props.mainProperties).map((key) => {
-					return <h3 key={key}>{`${key} : ${props.mainProperties[key]}`}</h3>;
-				})
-			}
+		<div className="MainForecast">
+			<h1>
+				{props.weatherInfo
+					.toLowerCase()
+					.split(" ")
+					.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+					.join(" ")}
+			</h1>
+			<h2>{props.cityName}</h2>
+			<h2>Current Temperature</h2>
+			<h2>
+				{props.currentTemp}°F <br />
+				<FontAwesomeIcon icon="cloud" size="5x" className="icon" />
+			</h2>
+		</div>
+	);
+}
+
+function ExtendedInfo(props) {
+	return (
+		<div className="ExtendedInfo">
+			<h3>
+				Feels Like <br />
+				{props.feels_like}°F
+			</h3>
+			<h3>
+				Max-Temp <br />
+				{props.temp_max}°F
+			</h3>
+			<h3>
+				Min-Temp <br />
+				{props.temp_min}°F
+			</h3>
+			<h3>
+				Humidity <br />
+				{props.humidity}% <FontAwesomeIcon icon="tint" size="1x" />
+			</h3>
 		</div>
 	);
 }

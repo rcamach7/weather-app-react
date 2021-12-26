@@ -1,24 +1,63 @@
 html {
-	background: url("../images/background.jpg");
+	font-family: "Courier New", Courier, monospace;
+	background: url("../images/background.jpeg");
 	background-attachment: fixed;
 	background-size: cover;
 }
 
-.TodaysForecast {
+.App {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.CityForecast {
-	width: 75vw;
-	height: 60vh;
+.TodaysForecast {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+
+	width: 90vw;
+	height: 50vh;
+	padding: 0 10px 0 10px;
+
+	border-radius: 20px;
+}
+
+.TodaysForecast h3,
+.TodaysForecast h2 {
+	margin: 10px 0 10px 0;
+}
+
+.TodaysForecast h1 {
+	margin: 0 0 0 0;
+}
+
+.MainForecast {
+	box-sizing: border-box;
 
 	overflow: scroll;
 	text-align: center;
 	padding: 10px;
-	border-radius: 10px;
 
-	background-color: rgba(0, 0, 0, 0.8);
-	color: white;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.ExtendedInfo {
+	box-sizing: border-box;
+	overflow: scroll;
+	text-align: center;
+	padding: 10px;
+
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
