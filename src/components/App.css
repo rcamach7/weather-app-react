@@ -9,6 +9,8 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .TodaysForecast {
@@ -46,7 +48,6 @@ html {
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 }
 
 .ExtendedInfo {
@@ -59,5 +60,14 @@ html {
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+}
+
+/* Search Engine Styling */
+.searchEngine {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.8);
+
+	overflow: hidden;
+	padding: 5px;
+	border-radius: 20px;
 }
