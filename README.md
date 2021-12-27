@@ -1,16 +1,17 @@
 # Weather-App-React
 
-Search a location for forecast data.
+Search using Zip-Codes for daily and weekly weather forecasts!
 
 - Display current forecast and temperature max and mins.
 - Display five day forecast with temperature and weather conditions.
-- Unique weather symbols for each forecast description.
+- Unique weather symbols and icons for each forecast condition.
+- Multiple API calls to retrieve required data.
+
+![Screenshot](demo.png)
 
 ### Live Demo
 
 [GitHub Pages](google.com).
-
-![Screenshot](demo.png)
 
 ### Built Using:
 
@@ -22,7 +23,7 @@ Search a location for forecast data.
   - state management
   - event handlers
   - fetch API calls
-- ## Javascript
+- Javascript
 - [FontAwesome Toolkit](https://fontawesome.com)
 - HTML
 - CSS
