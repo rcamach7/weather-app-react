@@ -11,6 +11,7 @@ import {
 	faSun,
 	faSnowflake,
 	faCloudShowersHeavy,
+	faSearchLocation,
 } from "@fortawesome/free-solid-svg-icons";
 
 class App extends React.Component {
@@ -125,6 +126,7 @@ library.add(
 	faTint,
 	faSun,
 	faSnowflake,
-	faCloudShowersHeavy
+	faCloudShowersHeavy,
+	faSearchLocation
 );
 export default App;
