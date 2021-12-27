@@ -71,3 +71,14 @@ html {
 	padding: 5px;
 	border-radius: 20px;
 }
+
+/* Seven Day Forecast Styling */
+.SevenDayForecast {
+	background-color: rgba(0, 0, 0, 0.8);
+
+	border-radius: 20px;
+	padding: 0 10px 0 10px;
+
+	height: 40vh;
+	width: 90vw;
+}

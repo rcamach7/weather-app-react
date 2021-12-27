@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import TodaysForecast from "./TodaysForecast";
 import SearchEngine from "./searchEngine";
+import FiveDayForecasts from "./FiveDayForecasts";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -27,6 +28,7 @@ class App extends React.Component {
 				temp_max: "loading...",
 				temp_min: "loading...",
 			},
+			fiveDayForecasts: [],
 		};
 		this.handleNewSearch = this.handleNewSearch.bind(this);
 	}
@@ -57,6 +59,27 @@ class App extends React.Component {
 					mainProperties: result.main,
 				});
 			});
+		this.fetchWeekForecasts();
+	}
+
+	fetchWeekForecasts() {
+		let url = `http://api.openweathermap.org/data/2.5/forecast?zip=90201,&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial`;
+		// "http://api.openweathermap.org/data/2.5/weather?zip=90201,us&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial"
+		fetch(url)
+			.then((result) => result.json())
+			.then((result) => {
+				let fullResponse = result.list;
+				let dayContainer = [];
+
+				for (let i = 0; i < fullResponse.length; i++) {
+					if (fullResponse[i].dt_txt.substring(11) === "21:00:00") {
+						dayContainer.push(fullResponse[i]);
+					}
+				}
+				this.setState({
+					fiveDayForecasts: dayContainer,
+				});
+			});
 	}
 
 	render() {
@@ -75,6 +98,7 @@ class App extends React.Component {
 					temp_min={temp_min}
 				/>
 				<SearchEngine handleNewSearch={this.handleNewSearch} />
+				<FiveDayForecasts fiveDayForecasts={this.state.fiveDayForecasts} />
 			</div>
 		);
 	}
