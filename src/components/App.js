@@ -44,6 +44,7 @@ class App extends React.Component {
 					mainProperties: result.main,
 				});
 			});
+		this.fetchWeekForecasts(zipCode);
 	}
 
 	// Default zip-code we will use on first launch.
@@ -59,12 +60,12 @@ class App extends React.Component {
 					mainProperties: result.main,
 				});
 			});
-		this.fetchWeekForecasts();
+		// Will fetch 5 day forcast with default zip code
+		this.fetchWeekForecasts("90201");
 	}
 
-	fetchWeekForecasts() {
-		let url = `http://api.openweathermap.org/data/2.5/forecast?zip=90201,&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial`;
-		// "http://api.openweathermap.org/data/2.5/weather?zip=90201,us&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial"
+	fetchWeekForecasts(zipCode) {
+		let url = `http://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial`;
 		fetch(url)
 			.then((result) => result.json())
 			.then((result) => {

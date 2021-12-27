@@ -1,26 +1,70 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const FiveDayForecasts = (props) => {
-	const [daysCollection, setDaysCollection] = useState([]);
+// const FiveDayForecasts = (props) => {
+// 	// these are generated weather cards based on the above data
+// 	const [dayCards, setDayCards] = useState([]);
 
-	useEffect(() => {
-		setDaysCollection(props.fiveDayForecasts);
-	}, [props.fiveDayForecasts]);
+// 	useEffect(() => {
+// 		props.fiveDayForecasts.map((day) => {
+// 			let newDayCard = (
+// <DayCard
+// 	key={day.dt_txt}
+// 	date={day.dt_txt.substring(0, 10)}
+// 	temp={day.main.temp}
+// />
+// 			);
+// 			let currentCards = dayCards;
+// 			currentCards.push(newDayCard);
+// 			setDayCards(currentCards);
+// 		});
+// 	}, [props.fiveDayForecasts, dayCards]);
 
-	useEffect(() => {
-		daysCollection.map((day) => {
-			console.log(day);
-		});
-	}, [daysCollection]);
+// 	return (
+// 		<div className="FiveDayForecasts">
+// 			<button onClick={() => console.log(dayCards)}>
+// 				Print Weather cards states
+// 			</button>
+// 			{dayCards}
+// 		</div>
+// 	);
+// };
 
-	const renderWeatherCard = () => {
-		// Use same method here I used in the pokemon card generation.
-	};
+class FiveDayForecasts extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			apiResponse: props.fiveDayForecasts,
+		};
+	}
 
+	render() {
+		return (
+			<div className="FiveDayForecasts">
+				{this.props.fiveDayForecasts.map((day) => {
+					return (
+						<DayCard
+							key={day.dt_txt}
+							date={day.dt_txt.substring(0, 10)}
+							temp={day.main.temp}
+							forecast={day.weather[0].description}
+						/>
+					);
+				})}
+			</div>
+		);
+	}
+}
+
+const DayCard = (props) => {
 	return (
-		<div>
-			{/* Use same concept here as pokemon card, map through state array, and generate weathercards */}
-			<h1>Hello World</h1>
+		<div className="dayCard">
+			<p className="dayProperty">{props.date}</p>
+			<p className="dayProperty">{props.temp}°F</p>
+			<p className="dayProperty">{props.forecast}</p>
+			<p className="dayProperty" id="iconHolder">
+				<FontAwesomeIcon icon="cloud" size="5x" className="icon" />
+			</p>
 		</div>
 	);
 };

@@ -13,6 +13,7 @@ html {
 	gap: 10px;
 }
 
+/* PARENT */
 .TodaysForecast {
 	display: flex;
 	justify-content: space-between;
@@ -22,7 +23,10 @@ html {
 	color: white;
 
 	width: 90vw;
+	max-width: 1000px;
 	height: 50vh;
+	max-height: fit-content;
+
 	padding: 0 10px 0 10px;
 
 	border-radius: 20px;
@@ -40,11 +44,9 @@ html {
 .MainForecast {
 	box-sizing: border-box;
 
-	overflow: scroll;
+	overflow: hidden;
 	text-align: center;
 	padding: 10px;
-
-	height: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -52,11 +54,9 @@ html {
 
 .ExtendedInfo {
 	box-sizing: border-box;
-	overflow: scroll;
+	overflow: hidden;
 	text-align: center;
 	padding: 10px;
-
-	height: 100%;
 
 	display: flex;
 	flex-direction: column;
@@ -68,17 +68,54 @@ html {
 	background-color: rgba(0, 0, 0, 0.8);
 
 	overflow: hidden;
-	padding: 5px;
+	padding: 10px;
 	border-radius: 20px;
 }
 
 /* Seven Day Forecast Styling */
-.SevenDayForecast {
+/* PARENT */
+.FiveDayForecasts {
 	background-color: rgba(0, 0, 0, 0.8);
 
 	border-radius: 20px;
 	padding: 0 10px 0 10px;
 
 	height: 40vh;
+	max-height: fit-content;
 	width: 90vw;
+	max-width: 1000px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	flex-wrap: wrap;
+	overflow-x: hidden;
+}
+
+.dayCard {
+	flex: 1;
+
+	text-align: center;
+
+	min-height: 250px;
+	max-width: 150px;
+
+	border-radius: 20px;
+	background-color: white;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.dayCard p {
+	margin: 0;
+}
+
+.dayProperty {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	flex: 1;
 }
