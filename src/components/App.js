@@ -55,7 +55,7 @@ class App extends React.Component {
 	// Default zip-code we will use on first launch.
 	componentDidMount() {
 		let url =
-			"http://api.openweathermap.org/data/2.5/weather?zip=90201,us&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial";
+			"http://api.openweathermap.org/data/2.5/weather?zip=90011,us&appid=cfe4442a714e271f99bffe0fa0ebbae1&units=imperial";
 		fetch(url)
 			.then((result) => result.json())
 			.then((result) => {
@@ -67,7 +67,7 @@ class App extends React.Component {
 				});
 			});
 		// Will fetch 5 day forcast with default zip code
-		this.fetchWeekForecasts("90201");
+		this.fetchWeekForecasts("90011");
 	}
 
 	fetchWeekForecasts(zipCode) {

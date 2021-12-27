@@ -1,8 +1,17 @@
 html {
 	font-family: "Courier New", Courier, monospace;
-	background: url("../images/background.jpeg");
+	background: url("../images/bac2.jpg");
 	background-attachment: fixed;
 	background-size: cover;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+	margin: 0;
 }
 
 .App {
@@ -66,6 +75,9 @@ html {
 	flex-direction: column;
 }
 
+.mainForecast-icon {
+	padding-top: 10px;
+}
 /* Right side giving extra info */
 .ExtendedInfo {
 	box-sizing: border-box;
@@ -85,6 +97,7 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 25px;
 }
 
 #search {

@@ -9,6 +9,7 @@ class TodaysForecast extends React.Component {
 				<div className="websiteTitle">
 					<h1>Weather Forecast</h1>
 				</div>
+				<SearchEngine handleNewSearch={this.props.handleNewSearch} />
 				<div className="mainForecastContainer">
 					<MainForecast
 						cityName={this.props.cityName}
@@ -24,7 +25,6 @@ class TodaysForecast extends React.Component {
 						humidity={this.props.humidity}
 					/>
 				</div>
-				<SearchEngine handleNewSearch={this.props.handleNewSearch} />
 			</div>
 		);
 	}
@@ -56,8 +56,8 @@ function MainForecast(props) {
 			<h2>Current Temperature</h2>
 			<h2>
 				{props.currentTemp}°F <br />
-				{renderIcon(props.iconKey)}
 			</h2>
+			<div className="mainForecast-icon">{renderIcon(props.iconKey)}</div>
 		</div>
 	);
 }
