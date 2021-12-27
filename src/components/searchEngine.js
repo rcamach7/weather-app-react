@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class SearchEngine extends React.Component {
 	constructor(props) {
@@ -53,18 +54,20 @@ class SearchEngine extends React.Component {
 		return (
 			<div className="searchEngine">
 				<form action="#" id="searchWeather">
-					<label htmlFor="search">Search by Zip Code </label>
 					<input
 						type="text"
 						id="search"
+						placeholder="Enter Zip Code"
 						onChange={this.handleSearchChange}
 					></input>
 
-					<input
+					<button
 						type="submit"
 						value="Submit"
 						onClick={this.handleSubmitSearch}
-					></input>
+					>
+						<FontAwesomeIcon icon="search-location" size="1x" />
+					</button>
 				</form>
 			</div>
 		);

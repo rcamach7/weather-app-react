@@ -41,9 +41,30 @@ const renderIcon = (key) => {
 };
 
 const DayCard = (props) => {
+	const returnDayOfWeek = (date) => {
+		const daysOfWeek = [
+			"Sunday",
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+		];
+		const broken_date = date.split("-");
+		const date_gen = new Date(
+			broken_date[0],
+			broken_date[1] - 1,
+			broken_date[2]
+		).getDay();
+
+		// Return appropriate day
+		return daysOfWeek[date_gen];
+	};
+
 	return (
 		<div className="dayCard">
-			<p className="dayProperty">{props.date}</p>
+			<p className="dayProperty">{returnDayOfWeek(props.date)}</p>
 			<p className="dayProperty">{props.temp}°F</p>
 			<p className="dayProperty">{props.forecast}</p>
 			<p className="dayProperty" id="iconHolder">
