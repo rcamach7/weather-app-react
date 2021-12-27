@@ -97,8 +97,8 @@ class App extends React.Component {
 					temp={temp}
 					temp_max={temp_max}
 					temp_min={temp_min}
+					handleNewSearch={this.handleNewSearch}
 				/>
-				<SearchEngine handleNewSearch={this.handleNewSearch} />
 				<FiveDayForecasts fiveDayForecasts={this.state.fiveDayForecasts} />
 			</div>
 		);
