@@ -1,34 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-// const FiveDayForecasts = (props) => {
-// 	// these are generated weather cards based on the above data
-// 	const [dayCards, setDayCards] = useState([]);
-
-// 	useEffect(() => {
-// 		props.fiveDayForecasts.map((day) => {
-// 			let newDayCard = (
-// <DayCard
-// 	key={day.dt_txt}
-// 	date={day.dt_txt.substring(0, 10)}
-// 	temp={day.main.temp}
-// />
-// 			);
-// 			let currentCards = dayCards;
-// 			currentCards.push(newDayCard);
-// 			setDayCards(currentCards);
-// 		});
-// 	}, [props.fiveDayForecasts, dayCards]);
-
-// 	return (
-// 		<div className="FiveDayForecasts">
-// 			<button onClick={() => console.log(dayCards)}>
-// 				Print Weather cards states
-// 			</button>
-// 			{dayCards}
-// 		</div>
-// 	);
-// };
 
 class FiveDayForecasts extends React.Component {
 	constructor(props) {
@@ -48,6 +19,7 @@ class FiveDayForecasts extends React.Component {
 							date={day.dt_txt.substring(0, 10)}
 							temp={day.main.temp}
 							forecast={day.weather[0].description}
+							iconKey={day.weather[0].main}
 						/>
 					);
 				})}
@@ -56,6 +28,18 @@ class FiveDayForecasts extends React.Component {
 	}
 }
 
+const renderIcon = (key) => {
+	if (key === "rain") {
+		return <FontAwesomeIcon icon="cloud-showers-heavy" size="2x" />;
+	} else if (key === "clouds") {
+		return <FontAwesomeIcon icon="cloud" size="2x" />;
+	} else if (key === "snow") {
+		return <FontAwesomeIcon icon="snowflake" size="2x" />;
+	} else {
+		return <FontAwesomeIcon icon="sun" size="2x" />;
+	}
+};
+
 const DayCard = (props) => {
 	return (
 		<div className="dayCard">
@@ -63,7 +47,7 @@ const DayCard = (props) => {
 			<p className="dayProperty">{props.temp}°F</p>
 			<p className="dayProperty">{props.forecast}</p>
 			<p className="dayProperty" id="iconHolder">
-				<FontAwesomeIcon icon="cloud" size="5x" className="icon" />
+				{renderIcon(props.iconKey.toLowerCase())}
 			</p>
 		</div>
 	);
