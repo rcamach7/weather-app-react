@@ -21,7 +21,7 @@ html {
 	width: 90vw;
 	max-width: 860px;
 	height: 50vh;
-	max-height: 400px;
+	max-height: 450px;
 
 	padding: 0 10px 0 10px;
 
@@ -35,7 +35,7 @@ html {
 }
 
 .websiteTitle h1 {
-	margin: 0;
+	margin: 5px 0 5px 0;
 }
 
 /* Holds forecast left and right */

@@ -14,6 +14,7 @@ class TodaysForecast extends React.Component {
 						cityName={this.props.cityName}
 						weatherInfo={this.props.weatherInfo}
 						currentTemp={this.props.temp}
+						iconKey={this.props.iconKey}
 					/>
 
 					<ExtendedInfo
@@ -30,6 +31,18 @@ class TodaysForecast extends React.Component {
 }
 
 function MainForecast(props) {
+	const renderIcon = (key) => {
+		if (key === "Rain") {
+			return <FontAwesomeIcon icon="cloud-showers-heavy" size="5x" />;
+		} else if (key === "Clouds") {
+			return <FontAwesomeIcon icon="cloud" size="5x" />;
+		} else if (key === "Snow") {
+			return <FontAwesomeIcon icon="snowflake" size="5x" />;
+		} else {
+			return <FontAwesomeIcon icon="sun" size="5x" />;
+		}
+	};
+
 	return (
 		<div className="MainForecast">
 			<h1>
@@ -43,7 +56,7 @@ function MainForecast(props) {
 			<h2>Current Temperature</h2>
 			<h2>
 				{props.currentTemp}°F <br />
-				<FontAwesomeIcon icon="cloud" size="5x" className="icon" />
+				{renderIcon(props.iconKey)}
 			</h2>
 		</div>
 	);

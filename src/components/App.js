@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import TodaysForecast from "./TodaysForecast";
-import SearchEngine from "./searchEngine";
 import FiveDayForecasts from "./FiveDayForecasts";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -9,6 +8,9 @@ import {
 	faCheckSquare,
 	faCloud,
 	faTint,
+	faSun,
+	faSnowflake,
+	faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
 
 class App extends React.Component {
@@ -20,6 +22,7 @@ class App extends React.Component {
 			// so we can determine which main icon to use. The other property is one word we can
 			// easily match with a icon as apposed to what we are saving right now.
 			weatherInfo: "loading...",
+			iconKey: "loading...",
 			mainProperties: {
 				feels_like: "loading...",
 				humidity: "loading...",
@@ -41,6 +44,7 @@ class App extends React.Component {
 				this.setState({
 					cityName: result.name,
 					weatherInfo: result.weather[0].description,
+					iconKey: result.weather[0].main,
 					mainProperties: result.main,
 				});
 			});
@@ -57,6 +61,7 @@ class App extends React.Component {
 				this.setState({
 					cityName: result.name,
 					weatherInfo: result.weather[0].description,
+					iconKey: result.weather[0].main,
 					mainProperties: result.main,
 				});
 			});
@@ -84,8 +89,15 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { feels_like, humidity, pressure, temp, temp_max, temp_min } =
-			this.state.mainProperties;
+		const {
+			feels_like,
+			humidity,
+			pressure,
+			temp,
+			temp_max,
+			temp_min,
+			iconKey,
+		} = this.state.mainProperties;
 		return (
 			<div className="App">
 				<TodaysForecast
@@ -97,6 +109,7 @@ class App extends React.Component {
 					temp={temp}
 					temp_max={temp_max}
 					temp_min={temp_min}
+					iconKey={iconKey}
 					handleNewSearch={this.handleNewSearch}
 				/>
 				<FiveDayForecasts fiveDayForecasts={this.state.fiveDayForecasts} />
@@ -105,5 +118,13 @@ class App extends React.Component {
 	}
 }
 
-library.add(fab, faCheckSquare, faCloud, faTint);
+library.add(
+	fab,
+	faCheckSquare,
+	faCloud,
+	faTint,
+	faSun,
+	faSnowflake,
+	faCloudShowersHeavy
+);
 export default App;
