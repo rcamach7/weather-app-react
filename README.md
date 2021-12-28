@@ -11,7 +11,7 @@ View daily and weekly weather forecasts using Zip-Codes and have information dis
 
 ### Live Demo
 
-[GitHub Pages](google.com).
+[GitHub Pages](https://rcamach7.github.io/weather-app-react/).
 
 ### Built Using:
 
