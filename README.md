@@ -1,6 +1,6 @@
 # Weather-App-React
 
-Search using Zip-Codes for daily and weekly weather forecasts!
+View daily and weekly weather forecasts using Zip-Codes and have information displayed dynamically using API calls!
 
 - Display current forecast and temperature max and mins.
 - Display five day forecast with temperature and weather conditions.
