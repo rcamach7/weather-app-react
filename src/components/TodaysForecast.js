@@ -9,7 +9,6 @@ class TodaysForecast extends React.Component {
 				<div className="websiteTitle">
 					<h1>Weather Forecast</h1>
 				</div>
-				<SearchEngine handleNewSearch={this.props.handleNewSearch} />
 				<div className="mainForecastContainer">
 					<MainForecast
 						cityName={this.props.cityName}
@@ -25,6 +24,7 @@ class TodaysForecast extends React.Component {
 						humidity={this.props.humidity}
 					/>
 				</div>
+				<SearchEngine handleNewSearch={this.props.handleNewSearch} />
 			</div>
 		);
 	}
@@ -45,18 +45,19 @@ function MainForecast(props) {
 
 	return (
 		<div className="MainForecast">
-			<h1>
+			<h2>
 				{props.weatherInfo
 					.toLowerCase()
 					.split(" ")
 					.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
 					.join(" ")}
-			</h1>
-			<h2>{props.cityName}</h2>
-			<h2>Current Temperature</h2>
-			<h2>
-				{props.currentTemp}°F <br />
 			</h2>
+			<h3>{props.cityName}</h3>
+			<p className="mainKey">
+				Current Temperature
+				<br />
+				{props.currentTemp}°F
+			</p>
 			<div className="mainForecast-icon">{renderIcon(props.iconKey)}</div>
 		</div>
 	);
@@ -65,22 +66,22 @@ function MainForecast(props) {
 function ExtendedInfo(props) {
 	return (
 		<div className="ExtendedInfo">
-			<h3>
+			<p>
 				Feels Like <br />
 				{props.feels_like}°F
-			</h3>
-			<h3>
+			</p>
+			<p>
 				Max-Temp <br />
 				{props.temp_max}°F
-			</h3>
-			<h3>
+			</p>
+			<p>
 				Min-Temp <br />
 				{props.temp_min}°F
-			</h3>
-			<h3>
+			</p>
+			<p>
 				Humidity <br />
 				{props.humidity}% <FontAwesomeIcon icon="tint" size="1x" />
-			</h3>
+			</p>
 		</div>
 	);
 }
