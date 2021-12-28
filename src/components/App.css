@@ -114,6 +114,14 @@ body {
 	color: white;
 }
 
+.randomSearch {
+	background-color: transparent;
+	color: white;
+
+	margin-left: 5px;
+	border-radius: 20px;
+}
+
 /* Seven Day Forecast Styling */
 /* PARENT */
 .FiveDayForecasts {
