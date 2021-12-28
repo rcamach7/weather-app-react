@@ -41,6 +41,7 @@ body {
 .websiteTitle {
 	width: 100%;
 	text-align: center;
+	padding-bottom: 20px;
 }
 
 .websiteTitle h1 {
@@ -51,16 +52,14 @@ body {
 .mainForecastContainer {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	height: 75%;
 }
 
+.mainForecastContainer p,
+.mainForecastContainer h2,
 .mainForecastContainer h3,
-.mainForecastContainer h2 {
-	margin: 10px 0 10px 0;
-}
-
 .mainForecastContainer h1 {
-	margin: 0 0 0 0;
+	margin: 0;
 }
 
 /* Left side giving the main info of today's weather */
@@ -69,10 +68,15 @@ body {
 
 	overflow: hidden;
 	text-align: center;
-	padding: 10px;
 
 	display: flex;
 	flex-direction: column;
+}
+
+.mainKey {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	font-weight: bolder;
 }
 
 .mainForecast-icon {
@@ -83,10 +87,15 @@ body {
 	box-sizing: border-box;
 	overflow: hidden;
 	text-align: center;
-	padding: 10px;
 
 	display: flex;
 	flex-direction: column;
+}
+
+.ExtendedInfo p {
+	font-size: 20px;
+	font-weight: bolder;
+	padding-bottom: 15px;
 }
 
 /* Search Engine Styling */
@@ -97,7 +106,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 25px;
 }
 
 #search {
@@ -116,8 +124,7 @@ body {
 
 	height: 40vh;
 	max-height: 300px;
-	width: 90vw;
-	max-width: 860px;
+	max-width: 700px;
 
 	display: flex;
 	justify-content: center;
@@ -132,8 +139,9 @@ body {
 
 	text-align: center;
 
-	min-height: 250px;
-	max-width: 150px;
+	min-height: 200px;
+	max-height: 200px;
+	max-width: 100px;
 
 	border-radius: 20px;
 	background-color: white;
