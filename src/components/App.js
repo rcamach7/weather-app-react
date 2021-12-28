@@ -90,15 +90,8 @@ class App extends React.Component {
 	}
 
 	render() {
-		const {
-			feels_like,
-			humidity,
-			pressure,
-			temp,
-			temp_max,
-			temp_min,
-			iconKey,
-		} = this.state.mainProperties;
+		const { feels_like, humidity, pressure, temp, temp_max, temp_min } =
+			this.state.mainProperties;
 		return (
 			<div className="App">
 				<TodaysForecast
@@ -110,7 +103,7 @@ class App extends React.Component {
 					temp={temp}
 					temp_max={temp_max}
 					temp_min={temp_min}
-					iconKey={iconKey}
+					iconKey={this.state.iconKey}
 					handleNewSearch={this.handleNewSearch}
 				/>
 				<FiveDayForecasts fiveDayForecasts={this.state.fiveDayForecasts} />

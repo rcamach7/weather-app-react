@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { DefaultData } from "../data/randomZipCodes";
 
 class SearchEngine extends React.Component {
 	constructor(props) {
@@ -9,6 +10,7 @@ class SearchEngine extends React.Component {
 		};
 		this.handleSearchChange = this.handleSearchChange.bind(this);
 		this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
+		this.handleRandomSearch = this.handleRandomSearch.bind(this);
 	}
 
 	handleSearchChange(e) {
@@ -50,6 +52,10 @@ class SearchEngine extends React.Component {
 		});
 	}
 
+	handleRandomSearch() {
+		this.props.handleNewSearch(DefaultData.returnRandomZipCode());
+	}
+
 	render() {
 		return (
 			<div className="searchEngine">
@@ -67,6 +73,9 @@ class SearchEngine extends React.Component {
 						onClick={this.handleSubmitSearch}
 					>
 						<FontAwesomeIcon icon="search-location" size="1x" />
+					</button>
+					<button className="randomSearch" onClick={this.handleRandomSearch}>
+						Random ZipCode
 					</button>
 				</form>
 			</div>
