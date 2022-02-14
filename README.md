@@ -7,7 +7,7 @@ View daily and weekly weather forecasts using Zip-Codes and have information dis
 - Unique weather symbols and icons for each forecast condition.
 - Multiple API calls to retrieve required data.
 
-![Screenshot](demo.png)
+![Screenshot](weatherDemo.png)
 
 ### Live Demo
 
