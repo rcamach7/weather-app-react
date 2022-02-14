@@ -72,10 +72,14 @@ class SearchEngine extends React.Component {
             value="Submit"
             onClick={this.handleSubmitSearch}
           >
-            <FontAwesomeIcon icon="search-location" size="1x" />
+            <FontAwesomeIcon
+              icon="search-location"
+              size="1x"
+              style={{ fontSize: "12px" }}
+            />
           </button>
           <button className="randomSearch" onClick={this.handleRandomSearch}>
-            Random ZipCode
+            Random
           </button>
         </form>
       </div>

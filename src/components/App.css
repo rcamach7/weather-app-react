@@ -1,171 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@100&display=swap");
+
 html {
-	font-family: "Courier New", Courier, monospace;
-	background: url("../images/bac2.jpg");
-	background-attachment: fixed;
-	background-size: cover;
+  font-family: "Playfair Display", "Roboto", sans-serif;
+  background: url("../images/nat.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
-	margin: 0;
+  margin: 0;
 }
 
 .App {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Parent */
 .TodaysForecast {
-	background-color: rgba(0, 0, 0, 0.8);
-	color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
 
-	width: 90vw;
-	max-width: 860px;
-	height: 50vh;
-	max-height: 450px;
+  width: 90vw;
+  max-width: 860px;
+  height: 50vh;
+  max-height: 450px;
 
-	padding: 0 10px 0 10px;
+  padding: 0 10px 10px 10px;
 
-	border-radius: 20px;
-	overflow-x: hidden;
+  border-radius: 20px;
+  overflow-x: hidden;
 }
 
 .websiteTitle {
-	width: 100%;
-	text-align: center;
-	padding-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .websiteTitle h1 {
-	margin: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
 }
 
 /* Holds forecast left and right */
 .mainForecastContainer {
-	display: flex;
-	justify-content: space-between;
-	height: 75%;
+  display: flex;
+  justify-content: space-between;
+  height: 75%;
 }
 
 .mainForecastContainer p,
 .mainForecastContainer h2,
 .mainForecastContainer h3,
 .mainForecastContainer h1 {
-	margin: 0;
+  margin: 0;
 }
 
 /* Left side giving the main info of today's weather */
 .MainForecast {
-	box-sizing: border-box;
+  box-sizing: border-box;
 
-	overflow: hidden;
-	text-align: center;
+  overflow: hidden;
+  text-align: center;
 
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .mainKey {
-	padding-top: 20px;
-	padding-bottom: 10px;
-	font-weight: bolder;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-weight: bolder;
 }
 
 .mainForecast-icon {
-	padding-top: 10px;
+  padding-top: 10px;
 }
 /* Right side giving extra info */
 .ExtendedInfo {
-	box-sizing: border-box;
-	overflow: hidden;
-	text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
 
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .ExtendedInfo p {
-	font-size: 20px;
-	font-weight: bolder;
-	padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: bolder;
+  padding-bottom: 15px;
 }
 
 /* Search Engine Styling */
 .searchEngine {
-	color: white;
-	width: 100%;
+  color: white;
+  width: 100%;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #search {
-	background-color: transparent;
-	border-bottom: white solid 2px;
-	color: white;
+  background-color: white;
+  color: black;
 }
 
 .randomSearch {
-	background-color: transparent;
-	color: white;
+  background-color: white;
+  color: black;
 
-	margin-left: 5px;
-	border-radius: 20px;
+  margin-left: 5px;
+  border-radius: 5px;
 }
 
 /* Seven Day Forecast Styling */
 /* PARENT */
 .FiveDayForecasts {
-	background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 
-	border-radius: 20px;
-	padding: 0 10px 0 10px;
+  border-radius: 20px;
+  padding: 0 10px 0 10px;
 
-	height: 40vh;
-	max-height: 300px;
-	max-width: 700px;
+  height: 40vh;
+  max-height: 300px;
+  max-width: 700px;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	flex-wrap: wrap;
-	overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  overflow-x: hidden;
 }
 
 .dayCard {
-	flex: 1;
+  flex: 1;
 
-	text-align: center;
+  text-align: center;
 
-	min-height: 200px;
-	max-height: 200px;
-	max-width: 100px;
+  min-height: 200px;
+  max-height: 200px;
+  max-width: 100px;
 
-	border-radius: 20px;
-	background-color: white;
+  border-radius: 20px;
+  background-color: white;
 
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .dayCard p {
-	margin: 0;
+  margin: 0;
 }
 
 .dayProperty {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	flex: 1;
+  flex: 1;
 }
